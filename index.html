@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIOM Dashboard</title>
+    <title>BIOM 27th Bach Admission Analysis</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
@@ -183,7 +183,7 @@
 
     async function loadTeacherSelection() {
         document.getElementById('step3').classList.remove('hidden');
-        setStatusBar("শিক্ষকদের নাম আনা হচ্ছে...", true, "bg-blue-600");
+        setStatusBar("শিক্ষক/শিক্ষিকাদের নাম আনা হচ্ছে...", true, "bg-blue-600");
         try {
             const res = await fetch(`${SCRIPT_URL}?action=getTeacherList`);
             const list = await res.json();
@@ -310,8 +310,8 @@
             <div class="bg-blue-50 p-4 rounded-2xl"><p class="text-xs font-bold text-blue-400 uppercase">ফেসবুক আইডি</p><a href="${s.fbLink}" target="_blank" class="font-bold text-blue-700 underline">${s.fbName}</a></div>
             ${currentData.userRole === 'teacher' ? `<div class="bg-purple-50 p-4 rounded-2xl"><p class="text-xs font-bold text-purple-400 uppercase">মার্কেটিং মেম্বার</p><p class="font-bold">${s.marketingName} (${s.marketingPhone})</p></div>` : ''}
             <div class="grid grid-cols-2 gap-3">
-                <div class="bg-slate-50 p-4 rounded-2xl"><p class="text-xs font-bold text-slate-400 uppercase">ছাত্রের ফোন</p><p class="font-bold">${s.studentPhone}</p></div>
-                <div class="bg-slate-50 p-4 rounded-2xl"><p class="text-xs font-bold text-slate-400 uppercase">টিচার</p><p class="font-bold">${s.teacherName}</p></div>
+                <div class="bg-slate-50 p-4 rounded-2xl"><p class="text-xs font-bold text-slate-400 uppercase">শিক্ষার্থীর মোবাইল নম্বর</p><p class="font-bold">${s.studentPhone}</p></div>
+                <div class="bg-slate-50 p-4 rounded-2xl"><p class="text-xs font-bold text-slate-400 uppercase">Teacher</p><p class="font-bold">${s.teacherName}</p></div>
             </div>
             <div class="bg-yellow-50 p-4 rounded-2xl"><p class="text-xs font-bold text-yellow-600 uppercase">মন্তব্য</p><p class="italic text-slate-600">${s.comment || 'নেই'}</p></div>
         `;
